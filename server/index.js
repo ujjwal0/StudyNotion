@@ -20,6 +20,7 @@ const PORT = process.env.PORT || 4000;
 //database connect
 database.connect();
 //middlewares
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
@@ -28,13 +29,13 @@ app.use(function(req, res, next) {
 	
 	next();
   });
-app.use(
-	cors({
-		origin:"https://study-notion-ruby.vercel.app", 
-		credentials:true,
+// app.use(
+// 	cors({
+// 		origin:"https://study-notion-ruby.vercel.app", 
+// 		credentials:true,
 		
-	})
-)
+// 	})
+// )
 
 
 
