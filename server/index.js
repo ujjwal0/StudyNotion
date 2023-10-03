@@ -22,12 +22,21 @@ database.connect();
 //middlewares
 app.use(express.json());
 app.use(cookieParser());
+
+app.use(function(req, res, next) {
+	res.header("Access-Control-Allow-Origin", "https://study-notion-ruby.vercel.app");
+	
+	next();
+  });
 app.use(
 	cors({
 		origin:"https://study-notion-ruby.vercel.app", 
 		credentials:true,
+		
 	})
 )
+
+
 
 app.use(
 	fileUpload({
